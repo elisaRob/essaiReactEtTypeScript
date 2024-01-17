@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 
-type CourseGoalProps = PropsWithChildren<{ title:string, description:string }>
+type CourseGoalProps = PropsWithChildren<{ title:string, description:string, onDelete:(id: number) => void, id:number
+ } >
 
 export default function CourseGoal(props : CourseGoalProps) {
     return <article>
@@ -9,6 +10,6 @@ export default function CourseGoal(props : CourseGoalProps) {
             <p>{props.description}</p>
             <p>{props.children}</p>
         </div>
-        <button>Delete</button>
+        <button onClick={() => props.onDelete(props.id)}>Delete</button>
     </article>
 }
